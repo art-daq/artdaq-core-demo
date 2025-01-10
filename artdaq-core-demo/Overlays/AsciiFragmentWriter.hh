@@ -23,33 +23,33 @@ class demo::AsciiFragmentWriter : public demo::AsciiFragment
 {
 public:
 	/**
-   * \brief The constructor will expect the artdaq::Fragment object it's been
-   * passed to contain the artdaq::Fragment header + the
-   * AsciiFragment::Metadata object, otherwise it throws
-   * \param f artdaq::Fragment object to overlay
-   * \throws cet::exception if input Fragment does not contain an AsciiFragment::Metadata object
-   */
+	 * \brief The constructor will expect the artdaq::Fragment object it's been
+	 * passed to contain the artdaq::Fragment header + the
+	 * AsciiFragment::Metadata object, otherwise it throws
+	 * \param f artdaq::Fragment object to overlay
+	 * \throws cet::exception if input Fragment does not contain an AsciiFragment::Metadata object
+	 */
 	explicit AsciiFragmentWriter(artdaq::Fragment& f);
 
 	// These functions form overload sets with const functions from
 	// demo::AsciiFragment
 
 	/**
-   * \brief Return a non-const (for writing) pointer to the beginning of the Fragment payload
-   * \return A pointer to the beginning of the Fragment payload
-   */
+	 * \brief Return a non-const (for writing) pointer to the beginning of the Fragment payload
+	 * \return A pointer to the beginning of the Fragment payload
+	 */
 	char* dataBegin();
 
 	/**
-   * \brief Return a non-const (for writing) pointer to the end of the Fragment payload
-   * \return A pointer to the end of the Fragment payload
-   */
+	 * \brief Return a non-const (for writing) pointer to the end of the Fragment payload
+	 * \return A pointer to the end of the Fragment payload
+	 */
 	char* dataEnd();
 
 	/**
-   * \brief Returns a pointer to the AsciiFragment::Header object, non-const for writing
-   * \return A pointer to the AsciiFragment::Header object
-   */
+	 * \brief Returns a pointer to the AsciiFragment::Header object, non-const for writing
+	 * \return A pointer to the AsciiFragment::Header object
+	 */
 	Header* header_()
 	{
 		assert(artdaq_Fragment_.dataSizeBytes() >= sizeof(Header));
@@ -57,15 +57,15 @@ public:
 	}
 
 	/**
-   * \brief Sets the line number in the AsciiFragment::Header to the given (ASCII-encoded) value
-   * \param line_number Set the line number (ASCII-encoded) to this value
-   */
+	 * \brief Sets the line number in the AsciiFragment::Header to the given (ASCII-encoded) value
+	 * \param line_number Set the line number (ASCII-encoded) to this value
+	 */
 	void set_hdr_line_number(Header::line_number_t line_number) { header_()->line_number = line_number; }
 
 	/**
-   * \brief Resize the Fragment so that it can contain nChars characters
-   * \param nChars Number of characters in resized Fragment
-   */
+	 * \brief Resize the Fragment so that it can contain nChars characters
+	 * \param nChars Number of characters in resized Fragment
+	 */
 	void resize(size_t nChars);
 
 private:
