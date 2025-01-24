@@ -24,28 +24,28 @@ class demo::UDPFragmentWriter : public demo::UDPFragment
 {
 public:
 	/**
-   * \brief UDPFragmentWriter constructor
-   * \param f The artdaq::Fragment to overlay
-   * \throws cet::exception if the Fragment does not contain UDPFragment::Metadata and nothing else
-   */
+	 * \brief UDPFragmentWriter constructor
+	 * \param f The artdaq::Fragment to overlay
+	 * \throws cet::exception if the Fragment does not contain UDPFragment::Metadata and nothing else
+	 */
 	explicit UDPFragmentWriter(artdaq::Fragment& f);
 
 	/**
-   * \brief Get a pointer to the start of the UDP payload
-   * \return A byte pointer to the start of the UDP payload
-   */
+	 * \brief Get a pointer to the start of the UDP payload
+	 * \return A byte pointer to the start of the UDP payload
+	 */
 	uint8_t* dataBegin();
 
 	/**
-   * \brief Get a pointer to the end of the UDP payload
-   * \return A byte pointer to the end of the UDP payload
-   */
+	 * \brief Get a pointer to the end of the UDP payload
+	 * \return A byte pointer to the end of the UDP payload
+	 */
 	uint8_t* dataEnd();
 
 	/**
-   * \brief Get a pointer to the UDPFragment::Header object for writing
-   * \return A pointer to the UDPFragment::Header object
-   */
+	 * \brief Get a pointer to the UDPFragment::Header object for writing
+	 * \return A pointer to the UDPFragment::Header object
+	 */
 	Header* header_()
 	{
 		assert(artdaq_Fragment_.dataSizeBytes() >= sizeof(Header));
@@ -53,30 +53,30 @@ public:
 	}
 
 	/**
-   * \brief Setter for the Header::type field
-   * \param dataType Value to set to Header::type
-   */
+	 * \brief Setter for the Header::type field
+	 * \param dataType Value to set to Header::type
+	 */
 	void set_hdr_type(Header::data_type_t dataType) { header_()->type = dataType & 0xF; }
 
 	/**
-   * \brief Resize the UDP payload to the given number of bytes
-   * \param nBytes Number of bytes to request for the UDP payload
-   */
+	 * \brief Resize the UDP payload to the given number of bytes
+	 * \param nBytes Number of bytes to request for the UDP payload
+	 */
 	void resize(size_t nBytes);
 
 private:
 	/**
-   * \brief Calculate the size of the UDPFragment payload in Header::data_t words
-   * \param nBytes Number of bytes in the UDP payload
-   * \return Number of Header::data_t words in the UDP payload
-   */
+	 * \brief Calculate the size of the UDPFragment payload in Header::data_t words
+	 * \param nBytes Number of bytes in the UDP payload
+	 * \return Number of Header::data_t words in the UDP payload
+	 */
 	static size_t calc_event_size_words_(size_t nBytes);
 
 	/**
-   * \brief Calculate the number of Header::data_t words in a given number of bytes
-   * \param nBytes Number of bytes
-   * \return Number of Header::data_t words
-   */
+	 * \brief Calculate the number of Header::data_t words in a given number of bytes
+	 * \param nBytes Number of bytes
+	 * \return Number of Header::data_t words
+	 */
 	static size_t bytes_to_words_(size_t nBytes);
 
 	// Note that this non-const reference hides the const reference in the base class
