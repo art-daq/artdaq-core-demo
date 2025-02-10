@@ -1,5 +1,5 @@
 # ======================================================================
-#  artdaq_core_demo main build file
+#  artdaq-core-demo main build file
 #
 #  cd .../path/to/build/directory
 #  source .../path/to/artdaq-demo/ups/setup_for_development
@@ -10,7 +10,7 @@ cmake_minimum_required (VERSION 3.19)
 
 find_package(cetmodules 3.08.00 REQUIRED)
 
-project(artdaq_core_demo VERSION 1.12.00)
+project(artdaq-core-demo VERSION 1.12.00)
 
 include(CetCMakeEnv)
 cet_cmake_env()
@@ -54,7 +54,7 @@ endif()
 
 #cet_report_compiler_flags()
 
-find_package(artdaq_core 3.08.04 REQUIRED)
+find_package(artdaq-core 3.08.04 REQUIRED)
 
 # source
 add_subdirectory(artdaq-core-demo)

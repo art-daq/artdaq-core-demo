@@ -5,14 +5,14 @@ FragmentType.cc
 ToyFragment.cc
 UDPFragment.cc
 LIBRARIES PUBLIC
-  artdaq_core::artdaq-core_Utilities
-  artdaq_core::artdaq-core_Data
+  artdaq-core::Utilities
+  artdaq-core::Data
   TRACE::TRACE
   )
   
   
 include(ArtdaqCorePlugins)
-cet_build_plugin(ArtdaqDemo artdaq::fragmentNameHelper LIBRARIES REG artdaq_core_demo::artdaq-core-demo_Overlays)
+cet_build_plugin(ArtdaqDemo artdaq::fragmentNameHelper LIBRARIES REG artdaq-core-demo::Overlays)
 
 
 install_headers()
