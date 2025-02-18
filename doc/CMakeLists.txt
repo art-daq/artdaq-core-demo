@@ -8,10 +8,10 @@ function(create_pdf_documentation)
 
 	if(LATEX_FOUND AND EPSTOPDF_FOUND)
 		add_custom_command(OUTPUT ${CMAKE_CURRENT_BINARY_DIR}/latex/${PROJECT_NAME}_API_Documentation.pdf
-		                   COMMAND make > pdflatex.log 2>&1 WORKING_DIRECTORY ${CMAKE_CURRENT_BINARY_DIR}/latex 
-		                   COMMAND mv refman.pdf ${PROJECT_NAME}_API_Documentation.pdf
-		                   DEPENDS ${PROJECT_NAME}_doc
-		                   COMMENT "Generating ${PROJECT_NAME} PDF API Documentation file" VERBATIM)
+						   COMMAND make > pdflatex.log 2>&1 WORKING_DIRECTORY ${CMAKE_CURRENT_BINARY_DIR}/latex
+						   COMMAND mv refman.pdf ${PROJECT_NAME}_API_Documentation.pdf
+						   DEPENDS ${PROJECT_NAME}_doc
+						   COMMENT "Generating ${PROJECT_NAME} PDF API Documentation file" VERBATIM)
 		add_custom_target(${PROJECT_NAME}_pdf ALL DEPENDS ${CMAKE_CURRENT_BINARY_DIR}/latex/${PROJECT_NAME}_API_Documentation.pdf)
 		install(FILES ${CMAKE_CURRENT_BINARY_DIR}/latex/${PROJECT_NAME}_API_Documentation.pdf DESTINATION ${CMAKE_INSTALL_DATADIR}/doc OPTIONAL)
 	endif(LATEX_FOUND AND EPSTOPDF_FOUND)
@@ -20,7 +20,7 @@ endfunction()
 
 macro (create_doxygen_documentation)
 if(DOXYGEN_FOUND)
-    cmake_parse_arguments(CM "" "" "EXCLUDE;DEPENDS" ${ARGN})
+	cmake_parse_arguments(CM "" "" "EXCLUDE;DEPENDS" ${ARGN})
 	set(EXCLUDE_FILES "")
 	if(CM_EXCLUDE)
 		foreach(file ${CM_EXCLUDE})
@@ -43,14 +43,14 @@ if(DOXYGEN_FOUND)
 			endif()
 		endforeach()
 	endif()
-	
+
 	string(REPLACE ";" " " DOXYGEN_INCLUDE_PATH "${CMAKE_CXX_IMPLICIT_INCLUDE_DIRECTORIES}")
 
 	configure_file(${DOXYFILE_DIR}/Doxyfile.in ${CMAKE_CURRENT_BINARY_DIR}/Doxyfile @ONLY)
 	configure_file(${DOXYFILE_DIR}/header.html.in ${CMAKE_CURRENT_BINARY_DIR}/header.html @ONLY)
 	add_custom_command(OUTPUT ${CMAKE_CURRENT_BINARY_DIR}/${PROJECT_NAME}.tag
-	                   COMMAND ${DOXYGEN_EXECUTABLE} ${CMAKE_CURRENT_BINARY_DIR}/Doxyfile > doxygen.log 2>&1 WORKING_DIRECTORY ${CMAKE_CURRENT_BINARY_DIR}
-	                   COMMENT "Generating ${PROJECT_NAME} API documentation using Doxygen" VERBATIM)
+					   COMMAND ${DOXYGEN_EXECUTABLE} ${CMAKE_CURRENT_BINARY_DIR}/Doxyfile > doxygen.log 2>&1 WORKING_DIRECTORY ${CMAKE_CURRENT_BINARY_DIR}
+					   COMMENT "Generating ${PROJECT_NAME} API documentation using Doxygen" VERBATIM)
 	install(FILES ${CMAKE_CURRENT_BINARY_DIR}/${PROJECT_NAME}.tag DESTINATION ${CMAKE_INSTALL_DATADIR}/doc)
 	create_pdf_documentation()
 
