@@ -21,7 +21,7 @@ cet_set_compiler_flags(DIAGS VIGILANT
  NO_UNDEFINED
  EXTRA_FLAGS -pedantic
  )
- 
+
 string(TOUPPER ${CMAKE_BUILD_TYPE} BTYPE_UC)
 if(BTYPE_UC STREQUAL DEBUG)
   add_definitions(-DDEBUGME)
@@ -69,4 +69,3 @@ add_subdirectory(artdaq-core-demo)
 add_subdirectory(doc)
 
 cet_cmake_config()
-
