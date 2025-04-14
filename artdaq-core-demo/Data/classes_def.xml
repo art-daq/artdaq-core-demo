@@ -1,0 +1,6 @@
+<lcgdict>
+  <class name="demo::DemoDataProduct"/>
+  <class name="std::vector<demo::DemoDataProduct>"/>
+  <class name="art::Wrapper<std::vector<demo::DemoDataProduct>>"/>
+  <class name="art::Wrapper<demo::DemoDataProduct>"/>
+</lcgdict>
