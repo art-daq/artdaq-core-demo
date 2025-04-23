@@ -1,8 +1,8 @@
 #ifndef artdaq_core_demo_Data_DemoDataProduct_hh
 #define artdaq_core_demo_Data_DemoDataProduct_hh
 
-#include <vector>
 #include <string>
+#include <vector>
 
 namespace demo {
 class DemoDataProduct
@@ -16,5 +16,5 @@ public:
 	std::vector<int> data;
 };
 
-}  // namespace mu2e
+}  // namespace demo
 #endif  // artdaq_core_demo_Data_DemoDataProduct_hh
