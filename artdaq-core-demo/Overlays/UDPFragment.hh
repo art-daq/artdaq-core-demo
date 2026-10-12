@@ -1,5 +1,5 @@
-#ifndef artdaq_core_demo_Overlays_UDPFragment_hh
-#define artdaq_core_demo_Overlays_UDPFragment_hh
+#ifndef ARTDAQ_CORE_DEMO_ARTDAQ_CORE_DEMO_OVERLAYS_UDPFRAGMENT_HH_
+#define ARTDAQ_CORE_DEMO_ARTDAQ_CORE_DEMO_OVERLAYS_UDPFRAGMENT_HH_
 
 #include "artdaq-core/Data/Fragment.hh"
 
@@ -107,7 +107,7 @@ public:
 	 */
 	uint8_t const* dataBegin() const
 	{
-		return reinterpret_cast<uint8_t const*>(header_() + 1);  // NOLINT(cppcoreguidelines-pro-type-reinterpret-cast,cppcoreguidelines-pro-bounds-pointer-arithmetic)
+		return reinterpret_cast<uint8_t const*>(header_() + 1);  // NOLINT
 	}
 
 	/**
@@ -136,11 +136,11 @@ protected:
 	 */
 	Header const* header_() const
 	{
-		return reinterpret_cast<UDPFragment::Header const*>(artdaq_Fragment_.dataBeginBytes());  // NOLINT(cppcoreguidelines-pro-type-reinterpret-cast)
+		return reinterpret_cast<UDPFragment::Header const*>(artdaq_Fragment_.dataBeginBytes());  // NOLINT(runtime/casting,cppcoreguidelines-pro-type-reinterpret-cast)
 	}
 
 private:
 	artdaq::Fragment const& artdaq_Fragment_;
 };
 
-#endif /* artdaq_core_ots_Overlays_UDPFragment_hh */
+#endif  // ARTDAQ_CORE_DEMO_ARTDAQ_CORE_DEMO_OVERLAYS_UDPFRAGMENT_HH_

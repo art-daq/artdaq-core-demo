@@ -2,16 +2,6 @@
 
 #include "cetlib_except/exception.h"
 
-#if 0
-namespace {
-  unsigned int pop_count (unsigned int n) {
-    unsigned int c;
-    for (c = 0; n; c++) n &= n - 1;
-    return c;
-  }
-}
-#endif
-
 void demo::ToyFragment::checkADCData(int daq_adc_bits) const
 {
 	demo::ToyFragment::adc_t const* adcPtr(findBadADC(daq_adc_bits));
