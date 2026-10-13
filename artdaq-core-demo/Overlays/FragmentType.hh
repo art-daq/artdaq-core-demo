@@ -1,7 +1,11 @@
-#ifndef artdaq_demo_Overlays_FragmentType_hh
-#define artdaq_demo_Overlays_FragmentType_hh
-#include <unordered_map>
+#ifndef ARTDAQ_CORE_DEMO_ARTDAQ_CORE_DEMO_OVERLAYS_FRAGMENTTYPE_HH_
+#define ARTDAQ_CORE_DEMO_ARTDAQ_CORE_DEMO_OVERLAYS_FRAGMENTTYPE_HH_
+
 #include "artdaq-core/Data/Fragment.hh"
+
+#include <map>
+#include <string>
+#include <unordered_map>
 
 namespace demo {
 
@@ -31,13 +35,13 @@ using detail::FragmentType;
 /**
  * \brief List of names (in the order defined below) of the User types defined in artdaq_core_demo
  */
-std::unordered_map<FragmentType, std::string> const names{
-    {FragmentType::MISSED, "MISSED"},
-    {FragmentType::TOY1, "TOY1"},
-    {FragmentType::TOY2, "TOY2"},
-    {FragmentType::ASCII, "ASCII"},
-    {FragmentType::UDP, "UDP"},
-    {FragmentType::INVALID, "UNKNOWN"}};
+std::unordered_map<FragmentType, std::string> const names{// NOLINT
+                                                          {FragmentType::MISSED, "MISSED"},
+                                                          {FragmentType::TOY1, "TOY1"},
+                                                          {FragmentType::TOY2, "TOY2"},
+                                                          {FragmentType::ASCII, "ASCII"},
+                                                          {FragmentType::UDP, "UDP"},
+                                                          {FragmentType::INVALID, "UNKNOWN"}};
 
 /**
  * \brief Lookup the type code for a fragment by its string name
@@ -59,4 +63,4 @@ std::string fragmentTypeToString(FragmentType val);
  */
 std::map<artdaq::Fragment::type_t, std::string> makeFragmentTypeMap();
 }  // namespace demo
-#endif /* artdaq_demo_Overlays_FragmentType_hh */
+#endif  // ARTDAQ_CORE_DEMO_ARTDAQ_CORE_DEMO_OVERLAYS_FRAGMENTTYPE_HH_

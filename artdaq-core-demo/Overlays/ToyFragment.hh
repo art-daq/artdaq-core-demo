@@ -1,5 +1,5 @@
-#ifndef artdaq_demo_Overlays_ToyFragment_hh
-#define artdaq_demo_Overlays_ToyFragment_hh
+#ifndef ARTDAQ_CORE_DEMO_ARTDAQ_CORE_DEMO_OVERLAYS_TOYFRAGMENT_HH_
+#define ARTDAQ_CORE_DEMO_ARTDAQ_CORE_DEMO_OVERLAYS_TOYFRAGMENT_HH_
 
 #include "artdaq-core/Data/Fragment.hh"
 
@@ -161,7 +161,7 @@ public:
 	 */
 	adc_t const* dataBeginADCs() const
 	{
-		return reinterpret_cast<adc_t const*>(header_() + 1);  // NOLINT(cppcoreguidelines-pro-type-reinterpret-cast,cppcoreguidelines-pro-bounds-pointer-arithmetic)
+		return reinterpret_cast<adc_t const*>(header_() + 1);  // NOLINT
 	}
 
 	/**
@@ -194,7 +194,7 @@ public:
 	 * \param daq_adc_bits Number of bits for ADC values
 	 * \return Whether any of the ADC values in the ToyFragment are out-of-range
 	 */
-	bool fastVerify(int daq_adc_bits) const { return (findBadADC(daq_adc_bits) == dataEndADCs()); };
+	bool fastVerify(int daq_adc_bits) const { return (findBadADC(daq_adc_bits) == dataEndADCs()); }
 
 	/**
 	 * \brief Throw if any ADC value appears corrupt
@@ -227,11 +227,11 @@ protected:
 	 */
 	Header const* header_() const
 	{
-		return reinterpret_cast<ToyFragment::Header const*>(artdaq_Fragment_.dataBeginBytes());  // NOLINT(cppcoreguidelines-pro-type-reinterpret-cast)
+		return reinterpret_cast<ToyFragment::Header const*>(artdaq_Fragment_.dataBeginBytes());  // NOLINT(runtime/casting,cppcoreguidelines-pro-type-reinterpret-cast)
 	}
 
 private:
 	artdaq::Fragment const& artdaq_Fragment_;
 };
 
-#endif /* artdaq_demo_Overlays_ToyFragment_hh */
+#endif  // ARTDAQ_CORE_DEMO_ARTDAQ_CORE_DEMO_OVERLAYS_TOYFRAGMENT_HH_

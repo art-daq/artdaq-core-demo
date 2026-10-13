@@ -1,12 +1,12 @@
-#ifndef artdaq_core_demo_Overlays_UDPFragmentWriter_hh
-#define artdaq_core_demo_Overlays_UDPFragmentWriter_hh
+#ifndef ARTDAQ_CORE_DEMO_ARTDAQ_CORE_DEMO_OVERLAYS_UDPFRAGMENTWRITER_HH_
+#define ARTDAQ_CORE_DEMO_ARTDAQ_CORE_DEMO_OVERLAYS_UDPFRAGMENTWRITER_HH_
 
 #include "artdaq-core-demo/Overlays/UDPFragment.hh"
 #include "artdaq-core/Data/Fragment.hh"
 
 namespace demo {
 class UDPFragmentWriter;
-}
+}  // namespace demo
 
 /**
  * \brief Class derived from UDPFragment which allows writes to the data.
@@ -49,7 +49,7 @@ public:
 	Header* header_()
 	{
 		assert(artdaq_Fragment_.dataSizeBytes() >= sizeof(Header));
-		return reinterpret_cast<Header*>(artdaq_Fragment_.dataBeginBytes());  // NOLINT(cppcoreguidelines-pro-type-reinterpret-cast)
+		return reinterpret_cast<Header*>(artdaq_Fragment_.dataBeginBytes());  // NOLINT(runtime/casting,cppcoreguidelines-pro-type-reinterpret-cast)
 	}
 
 	/**
@@ -101,7 +101,7 @@ inline uint8_t* demo::UDPFragmentWriter::dataBegin()
 {
 	// Make sure there's data past the UDPFragment header
 	assert(artdaq_Fragment_.dataSizeBytes() >= sizeof(Header) + sizeof(artdaq::Fragment::value_type));
-	return reinterpret_cast<uint8_t*>(header_() + 1);  // NOLINT(cppcoreguidelines-pro-type-reinterpret-cast,cppcoreguidelines-pro-bounds-pointer-arithmetic)
+	return reinterpret_cast<uint8_t*>(header_() + 1);  // NOLINT
 }
 
 inline uint8_t* demo::UDPFragmentWriter::dataEnd()
@@ -126,4 +126,4 @@ inline size_t demo::UDPFragmentWriter::bytes_to_words_(size_t nBytes)
 	return (mod == 0) ? nBytes / bytes_per_word_() : nBytes / bytes_per_word_() + 1;
 }
 
-#endif /* artdaq_demo_Overlays_UDPFragmentWriter_hh */
+#endif  // ARTDAQ_CORE_DEMO_ARTDAQ_CORE_DEMO_OVERLAYS_UDPFRAGMENTWRITER_HH_

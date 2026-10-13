@@ -1,5 +1,5 @@
-#ifndef artdaq_core_demo_BuildInfo_GetPackageBuildInfo_hh
-#define artdaq_core_demo_BuildInfo_GetPackageBuildInfo_hh
+#ifndef ARTDAQ_CORE_DEMO_ARTDAQ_CORE_DEMO_BUILDINFO_GETPACKAGEBUILDINFO_HH_
+#define ARTDAQ_CORE_DEMO_ARTDAQ_CORE_DEMO_BUILDINFO_GETPACKAGEBUILDINFO_HH_
 
 #include "artdaq-core/Data/PackageBuildInfo.hh"
 
@@ -23,4 +23,4 @@ struct GetPackageBuildInfo
 };
 }  // namespace coredemo
 
-#endif /* artdaq_core_demo_BuildInfo_GetPackageBuildInfo_hh */
+#endif  // ARTDAQ_CORE_DEMO_ARTDAQ_CORE_DEMO_BUILDINFO_GETPACKAGEBUILDINFO_HH_

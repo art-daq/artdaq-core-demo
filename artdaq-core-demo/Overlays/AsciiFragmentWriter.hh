@@ -1,12 +1,12 @@
-#ifndef artdaq_demo_Overlays_AsciiFragmentWriter_hh
-#define artdaq_demo_Overlays_AsciiFragmentWriter_hh
+#ifndef ARTDAQ_CORE_DEMO_ARTDAQ_CORE_DEMO_OVERLAYS_ASCIIFRAGMENTWRITER_HH_
+#define ARTDAQ_CORE_DEMO_ARTDAQ_CORE_DEMO_OVERLAYS_ASCIIFRAGMENTWRITER_HH_
 
 #include "artdaq-core-demo/Overlays/AsciiFragment.hh"
 #include "artdaq-core/Data/Fragment.hh"
 
 namespace demo {
 class AsciiFragmentWriter;
-}
+}  // namespace demo
 
 /**
  * \brief Class derived from AsciiFragment which allows writes to the data (for simulation purposes).
@@ -53,7 +53,7 @@ public:
 	Header* header_()
 	{
 		assert(artdaq_Fragment_.dataSizeBytes() >= sizeof(Header));
-		return reinterpret_cast<Header*>(artdaq_Fragment_.dataBeginBytes());  // NOLINT(cppcoreguidelines-pro-type-reinterpret-cast)
+		return reinterpret_cast<Header*>(artdaq_Fragment_.dataBeginBytes());  // NOLINT(runtime/casting,cppcoreguidelines-pro-type-reinterpret-cast)
 	}
 
 	/**
@@ -99,7 +99,7 @@ inline char* demo::AsciiFragmentWriter::dataBegin()
 {
 	// Make sure there's data past the AsciiFragment header
 	assert(artdaq_Fragment_.dataSizeBytes() >= sizeof(Header) + sizeof(artdaq::Fragment::value_type));
-	return reinterpret_cast<char*>(header_() + 1);  // NOLINT(cppcoreguidelines-pro-type-reinterpret-cast,cppcoreguidelines-pro-bounds-pointer-arithmetic)
+	return reinterpret_cast<char*>(header_() + 1);  // NOLINT
 }
 
 inline char* demo::AsciiFragmentWriter::dataEnd()
@@ -124,4 +124,4 @@ inline size_t demo::AsciiFragmentWriter::chars_to_words_(size_t nChars)
 	return (mod == 0) ? nChars / chars_per_word_() : nChars / chars_per_word_() + 1;
 }
 
-#endif /* artdaq_demo_Overlays_AsciiFragmentWriter_hh */
+#endif  // ARTDAQ_CORE_DEMO_ARTDAQ_CORE_DEMO_OVERLAYS_ASCIIFRAGMENTWRITER_HH_

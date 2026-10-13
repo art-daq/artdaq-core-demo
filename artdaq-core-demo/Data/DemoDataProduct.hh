@@ -1,5 +1,5 @@
-#ifndef artdaq_core_demo_Data_DemoDataProduct_hh
-#define artdaq_core_demo_Data_DemoDataProduct_hh
+#ifndef ARTDAQ_CORE_DEMO_ARTDAQ_CORE_DEMO_DATA_DEMODATAPRODUCT_HH_
+#define ARTDAQ_CORE_DEMO_ARTDAQ_CORE_DEMO_DATA_DEMODATAPRODUCT_HH_
 
 #include <string>
 #include <vector>
@@ -11,10 +11,9 @@ public:
 	DemoDataProduct() {}
 	DemoDataProduct(std::string instance_name, std::vector<int> data);
 
-public:
 	std::string instance_name;
 	std::vector<int> data;
 };
 
 }  // namespace demo
-#endif  // artdaq_core_demo_Data_DemoDataProduct_hh
+#endif  // ARTDAQ_CORE_DEMO_ARTDAQ_CORE_DEMO_DATA_DEMODATAPRODUCT_HH_

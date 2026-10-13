@@ -1,5 +1,5 @@
-#ifndef artdaq_demo_Overlays_AsciiFragment_hh
-#define artdaq_demo_Overlays_AsciiFragment_hh
+#ifndef ARTDAQ_CORE_DEMO_ARTDAQ_CORE_DEMO_OVERLAYS_ASCIIFRAGMENT_HH_
+#define ARTDAQ_CORE_DEMO_ARTDAQ_CORE_DEMO_OVERLAYS_ASCIIFRAGMENT_HH_
 
 #include "artdaq-core/Data/Fragment.hh"
 #include "cetlib_except/exception.h"
@@ -121,7 +121,7 @@ public:
 	/// Start of the line, returned as a pointer to the char type
 	char const* dataBegin() const
 	{
-		return reinterpret_cast<char const*>(header_() + 1);  // NOLINT(cppcoreguidelines-pro-type-reinterpret-cast,cppcoreguidelines-pro-bounds-pointer-arithmetic)
+		return reinterpret_cast<char const*>(header_() + 1);  // NOLINT
 	}
 
 	/// End of the line, returned as a pointer to the char type
@@ -142,11 +142,11 @@ protected:
 	 */
 	Header const* header_() const
 	{
-		return reinterpret_cast<AsciiFragment::Header const*>(artdaq_Fragment_.dataBeginBytes());  // NOLINT(cppcoreguidelines-pro-type-reinterpret-cast)
+		return reinterpret_cast<AsciiFragment::Header const*>(artdaq_Fragment_.dataBeginBytes());  // NOLINT(runtime/casting,cppcoreguidelines-pro-type-reinterpret-cast)
 	}
 
 private:
 	artdaq::Fragment const& artdaq_Fragment_;
 };
 
-#endif /* artdaq_demo_Overlays_AsciiFragment_hh */
+#endif  // ARTDAQ_CORE_DEMO_ARTDAQ_CORE_DEMO_OVERLAYS_ASCIIFRAGMENT_HH_
